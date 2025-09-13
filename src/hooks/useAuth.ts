@@ -102,12 +102,12 @@ export const useAuthState = () => {
       // Update state
       setUser(null);
       
-      // Force a page reload to ensure clean state
-      window.location.reload();
+      // No page reload - let React handle the state change
+      console.log('🔓 User logged out successfully');
     } catch (error) {
       console.error('Error during logout:', error);
-      // Fallback: force reload even if localStorage operations fail
-      window.location.reload();
+      // Even if there's an error, clear the user state
+      setUser(null);
     }
   };
 
